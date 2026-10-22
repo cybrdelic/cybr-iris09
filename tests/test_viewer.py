@@ -25,4 +25,7 @@ class ViewerTests(unittest.TestCase):
     def test_worker_protocol_without_gpu(self):
         subprocess.run(['node',str(ROOT/'tests/test_worker_protocol.cjs')],check=True)
 
+    def test_preflight_limits_only_observed_stalling_backends(self):
+        subprocess.run(['node',str(ROOT/'tests/test_preflight.cjs')],check=True)
+
 if __name__ == '__main__': unittest.main()

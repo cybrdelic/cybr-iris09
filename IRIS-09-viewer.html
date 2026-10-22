@@ -172,6 +172,15 @@ onmessage = event => {
   liveNotice.id = 'liveNotice'; liveNotice.setAttribute('role','status');
   liveNotice.style.cssText = 'max-width:38ch;font-size:11px;line-height:1.5;letter-spacing:normal;color:#e4c6a8;pointer-events:auto';
   $('modeSwitch').insertAdjacentElement('afterend',liveNotice);
+  function observedLiveStall(renderer, platform) {
+    if (/ANGLE.*Intel.*0x0000A7A8.*Direct3D11/i.test(renderer)) {
+      return 'This Intel UHD / ANGLE D3D11 adapter stalled during the local audit.';
+    }
+    if (/Mac/i.test(platform) && /SwiftShader Device \(LLVM 10\.0\.0\) \(0x0000C0DE\)/i.test(renderer)) {
+      return 'This macOS SwiftShader software renderer exceeded the frame budget in the hosted audit and delayed browser interaction.';
+    }
+    return null;
+  }
   function stopWorker() {
     clearTimeout(deadline); deadline = null;
     if (worker) worker.terminate(); worker = null; busy = false; gl = null; program = null;
@@ -327,9 +336,9 @@ ${body}`;
       clearTimeout(deadline);
       if (result.type === 'capabilities') {
         Object.assign(window.irisDiagnostics,{renderer:result.renderer,version:result.version});
-        const observedStall = /ANGLE.*Intel.*0x0000A7A8.*Direct3D11/i.test(result.renderer);
+        const observedStall = observedLiveStall(result.renderer, navigator.userAgentData?.platform || navigator.platform);
         if (observedStall && !allowExperimentalLive) {
-          const message = 'This Intel UHD / ANGLE D3D11 adapter stalled during the local audit. Film is available. Driver-version coverage is unknown; an experimental Live attempt may affect the browser even after its worker stops.';
+          const message = observedStall + ' Film and the separate native renderer are available. Driver-version coverage is unknown; an experimental Live attempt may affect the browser even after its worker stops.';
           window.irisDiagnostics.lastError = message;
           window.irisDiagnostics.requiresExplicitAttempt = true;
           stopWorker(); fail('Live requires an explicit attempt',new Error(message));
