@@ -24,11 +24,21 @@ jobs:
           echo 'LIBGL_ALWAYS_SOFTWARE=1' >> "$GITHUB_ENV"
       - name: Install pinned native dependencies
         run: python -m pip install -r requirements-native.txt
+      - name: Install native macOS Mesa software renderer
+        if: runner.os == 'macOS'
+        run: |
+          brew install mesa
+          echo "CYBR_EGL_LIBRARY=$(brew --prefix mesa)/lib/libEGL.dylib" >> "$GITHUB_ENV"
+          echo 'CYBR_IRIS_GL_BACKEND=mesa' >> "$GITHUB_ENV"
+          echo 'LIBGL_ALWAYS_SOFTWARE=1' >> "$GITHUB_ENV"
+          echo 'GALLIUM_DRIVER=llvmpipe' >> "$GITHUB_ENV"
+          echo 'LP_NUM_THREADS=4' >> "$GITHUB_ENV"
       - name: Check native source and supervisor contracts
         run: |
           python -m unittest discover -s tests -p test_native_generator.py -v
           python -m unittest discover -s tests -p test_native_validator.py -v
           python -m unittest discover -s tests -p test_native_preview.py -v
+          python -m unittest discover -s tests -p test_mesa_context.py -v
       - name: Render all four camera samples at three wavelengths
         run: python tools/render_native.py --width 128 --height 72 --samples 2 --timeout 60 --output test-results/native/aa2.png --json test-results/native/aa2.json
       - name: Render explicit AA1 at an odd resolution and changed camera

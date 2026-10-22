@@ -81,7 +81,7 @@ class NativeSetupTests(unittest.TestCase):
             if 'backend' in arguments:
                 raise RuntimeError('test EGL unavailable')
             return 'mock context'
-        context, backend, attempts = create_context(factory, 'Linux')
+        context, backend, attempts = create_context(factory, 'Linux', backend='auto')
         self.assertEqual(context, 'mock context')
         self.assertEqual(backend, 'default')
         self.assertEqual(calls, [{'require': 330, 'backend': 'egl'}, {'require': 330}])

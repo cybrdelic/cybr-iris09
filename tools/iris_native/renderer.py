@@ -1,5 +1,6 @@
 """Native OpenGL330 execution. Third-party imports and GPU work are explicit."""
 import hashlib
+import os
 import platform
 import time
 from . import shaders
@@ -12,7 +13,13 @@ def context_candidates(system=None):
     return [('wgl-default' if system == 'Windows' else 'cgl-default' if system == 'Darwin' else 'default', {})]
 
 
-def create_context(factory, system=None):
+def create_context(factory, system=None, backend=None):
+    selected = (backend or os.environ.get('CYBR_IRIS_GL_BACKEND', 'auto')).lower()
+    if selected not in ('auto', 'mesa'):
+        raise ValueError('CYBR_IRIS_GL_BACKEND must be auto or mesa')
+    if selected == 'mesa':
+        from .mesa_context import create_mesa_context
+        return create_mesa_context(factory), 'mesa-egl-surfaceless', []
     attempts = []
     for name, options in context_candidates(system):
         try:
