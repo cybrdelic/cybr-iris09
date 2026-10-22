@@ -1,7 +1,55 @@
-# CYBR IRIS / 09
+# IRIS / 09
 
-Source import is in progress.
+A procedural optical-mechanism study in one GLSL fragment pass: nine swept iris leaves, a linked actuator, recessed refractive elements, machined surfaces, and a thin-lens camera.
 
-This repository is being prepared for the reviewed IRIS / 09 project. Source code, demo media, setup instructions, and validation results have not yet been imported.
+![IRIS-09 optical mechanism](media/iris-09-4k.png)
 
-This README-only placeholder is not a completed release.
+![Ten-second IRIS-09 animation](media/iris-09.gif)
+
+The image is the supplied 3840 × 2400 still. The GIF is a reduced 480-pixel-wide, 8 fps preview of the included 1920 × 1080, 24 fps, ten-second recovered film. These are rendered project outputs, not mockups.
+
+## Run
+
+Open `IRIS-09-viewer.html` in a modern browser. It contains the shaders, poster, and film, so it does not require a build step, package installation, or external asset downloads.
+
+If your browser restricts local files, serve this directory:
+
+```sh
+python3 -m http.server 8000
+```
+
+Then open http://localhost:8000/IRIS-09-viewer.html.
+
+The viewer starts in Film mode. Choose Live for the interactive WebGL2 renderer. Live rendering needs WebGL2 support and can be substantially slower than film playback, depending on the GPU and browser.
+
+## Controls
+
+- Film / Live switches between the embedded rendered movie and procedural rendering.
+- In Live mode, drag to orbit and scroll to zoom.
+- Play/Pause, the timeline, and Reset control the live ten-second cycle.
+- Resolution and sample controls trade image quality for live-rendering speed.
+- Save PNG exports a rendered frame. GLSL downloads the complete source.
+- FragCoord opens the compact shader in an external editor only when selected.
+- Reduced-motion preferences stop automatic film playback and live animation.
+
+## Files
+
+- `IRIS-09.glsl`: readable Revision 3 source, 43,865 bytes.
+- `IRIS-09-fragcoord.glsl`: compact source for FragCoord, 22,533 bytes.
+- `IRIS-09-viewer.html`: self-contained browser viewer with embedded media.
+- `IRIS-09-recovered.mp4`: recovered ten-second film, 240 frames at 24 fps.
+- `media/`: the full-size still and lightweight README animation.
+
+The viewer's embedded readable and compact shaders match the corresponding standalone files byte-for-byte. Its embedded film also matches `IRIS-09-recovered.mp4` byte-for-byte.
+
+## Rendering model and limits
+
+The source builds geometry and materials procedurally. Its lighting includes anisotropic GGX response, finite emitters, filtered machining detail, vector engraving, and refraction. RGB dispersion uses a three-wavelength approximation; indirect light and secondary optical reflections are bounded approximations.
+
+The mechanism is an animated visual study. It has not been established as a manufactured design, hardware qualification, unbiased optical simulation, or engineering-tolerance validation. The source's ten-second aperture, actuator, and camera cycle does not demonstrate mechanical feasibility.
+
+The preserved package includes the browser source and completed film, but not the original offline movie-capture script. No offline re-render command or exact pixel-reproduction claim is supplied here. Publication checks inspected source identity, media metadata, and sampled decoded frames without executing the project renderer.
+
+## License and dependencies
+
+No project license was supplied with this source package, and this publication adds no license grant. The browser viewer has no third-party package dependencies or remotely loaded assets. A WebGL2-capable browser is required for Live mode; Python is only an optional local file server.
