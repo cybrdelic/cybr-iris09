@@ -55,3 +55,9 @@ These small images are actual newly rendered command outputs, separate from the 
 | 159 x 91, AA1, time 5, drag (-20, 9), scroll -1 | ![New native AA1 still at 159 by 91](native-aa1.png) |
 
 The browser's default Direct3D-backed compiler still times out on the full optical transport program. The native tool is an available full-scene still-rendering path; it does not claim to repair browser Live or qualify every platform.
+
+## Hosted execution coverage
+
+The `Native IRIS rendering` workflow runs real AA2 and AA1 commands plus the independent original-shader comparison on Ubuntu 24.04 and macOS 15. Linux explicitly selects surfaceless EGL and Mesa software rendering; macOS uses the CGL backend. Each renderer process is bounded at 60 seconds, as is the numerical validator. Failed context creation, shader compilation, nonfinite output or numerical mismatch fails the job; there is no skip-to-success or prerecorded-frame substitute. PNGs and JSON receipts are retained even when a later step fails.
+
+This workflow is prepared locally and has not run on GitHub while publication is held. Its existence does not establish Linux/macOS execution. The Windows native command was executed locally; the existing three-OS viewer workflow separately runs CPU contracts and browser checks. Neither workflow by itself establishes full browser Live, physical-phone support or real-time performance.
