@@ -31,7 +31,7 @@
   function armDeadline(phase, milliseconds) {
     clearTimeout(deadline);
     deadline = setTimeout(() => {
-      const message = `${phase} exceeded ${milliseconds/1000}s. Live was stopped; select Live to retry at Auto preview.`;
+      const message = `${phase} exceeded ${milliseconds/1000}s. Live stopped; Film and shader downloads remain available.`;
       window.irisDiagnostics.lastError = message;
       liveNotice.textContent = message;
       stopWorker(); fail('Live time limit', new Error(message));
@@ -159,7 +159,7 @@ ${body}`;
   function rebuild() {
     if (state.mode !== 'live') return false;
     stopWorker(); resize(); state.dirty = true; renderedTime = null;
-    window.irisDiagnostics.phase = 'preflight';
+    Object.assign(window.irisDiagnostics,{phase:'preflight',lastError:null,compilerStages:[],lastCompilerStage:null,compileElapsedMs:null});
     liveNotice.textContent = 'Checking Live graphics support.';
     $('status').textContent = 'Checking worker WebGL2';
     const url = URL.createObjectURL(new Blob([$('renderWorker').textContent], {type:'text/javascript'}));
@@ -169,6 +169,13 @@ ${body}`;
     worker.onmessage = event => {
       const result = event.data;
       if (current !== worker) { if (result.bitmap) result.bitmap.close(); return; }
+      if (result.type === 'progress') {
+        // Progress is evidence, not completion: it must not cancel the deadline.
+        window.irisDiagnostics.lastCompilerStage = result.stage;
+        window.irisDiagnostics.compilerStages.push({stage:result.stage,elapsedMs:result.elapsedMs});
+        window.irisDiagnostics.compilerStages = window.irisDiagnostics.compilerStages.slice(-8);
+        return;
+      }
       clearTimeout(deadline);
       if (result.type === 'capabilities') {
         Object.assign(window.irisDiagnostics,{renderer:result.renderer,version:result.version});
@@ -197,7 +204,7 @@ ${body}`;
       }
       if (result.type === 'ready') {
         gl = {}; program = true; busy = false;
-        Object.assign(window.irisDiagnostics,{phase:'ready',renderer:result.renderer,parallelCompile:result.parallelCompile});
+        Object.assign(window.irisDiagnostics,{phase:'ready',renderer:result.renderer,parallelCompile:result.parallelCompile,compileElapsedMs:result.compileElapsedMs});
         $('status').textContent = 'Rendering first frame · 15s limit'; state.dirty = true;
       } else if (result.type === 'frame') {
         busy = false;

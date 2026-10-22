@@ -25,3 +25,5 @@ python tests/browser_smoke.py
 ```
 
 The builder preserves shader and media payloads. Browser results record either a completed Live frame or the exact fallback reason; a fallback never counts as Live rendering success. The three-OS CI workflow checks that distinction. Remote CI remains unverified until a branch is pushed and CI runs. Source and media licenses are unchanged.
+
+The [bounded Live investigation](docs/live-investigation.md) records three further attempts with original equations and full four-sample quality. Native compilation and an equivalent structured browser variant both timed out before drawing; Live remains unresolved on the tested adapter. The viewer now exposes compiler-stage timing in `window.irisDiagnostics`. Progress messages never extend the deadline. The experimental derived shader is kept outside the viewer; original shader files and embedded downloads remain unchanged.

@@ -22,4 +22,7 @@ class ViewerTests(unittest.TestCase):
         for name in ['runtime.js','worker.js']:
             subprocess.run(['node','--check',str(ROOT/'viewer'/name)],check=True)
 
+    def test_worker_protocol_without_gpu(self):
+        subprocess.run(['node',str(ROOT/'tests/test_worker_protocol.cjs')],check=True)
+
 if __name__ == '__main__': unittest.main()

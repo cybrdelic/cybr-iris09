@@ -1,6 +1,8 @@
 'use strict';
 // This worker owns all WebGL calls. The UI never waits synchronously for a GPU.
 let gl, surface, program, vao, uniforms;
+let compileStarted = 0;
+const compilerProgress = stage => postMessage({type:'progress',stage,elapsedMs:performance.now()-compileStarted});
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 async function waitForGPU() {
   const fence = gl.fenceSync(gl.SYNC_GPU_COMMANDS_COMPLETE, 0);
@@ -28,15 +30,23 @@ function probe() {
 }
 async function initialize(message) {
   if (!gl) throw Error('WebGL preflight must complete before compiling');
+  compileStarted = performance.now();
   const extension = gl.getExtension('KHR_parallel_shader_compile');
   const shaders = [[gl.VERTEX_SHADER, message.vertex], [gl.FRAGMENT_SHADER, message.fragment]].map(([type, source]) => {
-    const shader = gl.createShader(type); gl.shaderSource(shader, source); gl.compileShader(shader); return shader;
+    const shader = gl.createShader(type); gl.shaderSource(shader, source);
+    compilerProgress(type === gl.VERTEX_SHADER ? 'vertex-compile-call' : 'fragment-compile-call');
+    gl.compileShader(shader);
+    compilerProgress(type === gl.VERTEX_SHADER ? 'vertex-compile-returned' : 'fragment-compile-returned');
+    return shader;
   });
   program = gl.createProgram();
-  shaders.forEach(shader => gl.attachShader(program, shader)); gl.linkProgram(program);
+  shaders.forEach(shader => gl.attachShader(program, shader));
+  compilerProgress('link-call'); gl.linkProgram(program); compilerProgress('link-returned');
+  compilerProgress(extension ? 'parallel-completion-wait' : 'no-parallel-extension');
   if (extension) {
     while (!gl.getProgramParameter(program, extension.COMPLETION_STATUS_KHR)) await delay(20);
   }
+  compilerProgress('status-queries');
   for (const shader of shaders) {
     if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) throw Error(gl.getShaderInfoLog(shader) || 'Shader compilation failed');
     gl.deleteShader(shader);
@@ -46,7 +56,7 @@ async function initialize(message) {
   for (const name of ['u_resolution','u_time','u_time_delta','u_frame','u_mouse','u_drag','u_scroll']) uniforms[name] = gl.getUniformLocation(program, name);
   gl.disable(gl.BLEND); gl.disable(gl.DEPTH_TEST); gl.disable(gl.CULL_FACE);
   const debug = gl.getExtension('WEBGL_debug_renderer_info');
-  postMessage({type:'ready', parallelCompile:!!extension, renderer:debug ? gl.getParameter(debug.UNMASKED_RENDERER_WEBGL) : gl.getParameter(gl.RENDERER)});
+  postMessage({type:'ready', compileElapsedMs:performance.now()-compileStarted, parallelCompile:!!extension, renderer:debug ? gl.getParameter(debug.UNMASKED_RENDERER_WEBGL) : gl.getParameter(gl.RENDERER)});
 }
 async function render(message) {
   const start = performance.now();
