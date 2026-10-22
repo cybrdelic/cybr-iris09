@@ -2,7 +2,7 @@
 
 See the [viewer compatibility guide](PORTABILITY.md) for the bounded Live worker, responsive controls, setup and the observed Intel/ANGLE limitation. Film and source downloads remain available when Live cannot run.
 
-The [native still renderer](docs/native-renderer.md) now renders the complete scene directly from the archived equations through OpenGL 3.3. Its Windows execution is verified; it is separate from browser Live, which remains under investigation on the audited Intel/ANGLE adapter.
+The [native still renderer](docs/native-renderer.md) now renders the complete scene directly from the archived equations through OpenGL 3.3. Execution is verified on Windows/WGL and hosted Linux/Mesa and macOS/Mesa software OpenGL. See the [recorded hosted results](docs/native-macos-mesa.md#recorded-hosted-results). It is separate from browser Live, which still has zero verified frames on the audited Intel/ANGLE and macOS SwiftShader configurations.
 
 For actual time, camera and zoom interaction on that computer, run the [localhost native preview](docs/native-preview.md). It displays newly rendered full-scene stills and keeps the newest requested controls. The verified 160 x 90 AA2 requests took 8-12 seconds including process startup and compilation; this is not real-time playback.
 
@@ -26,7 +26,7 @@ python3 -m http.server 8000
 
 Then open http://localhost:8000/IRIS-09-viewer.html.
 
-The viewer starts in Film mode. Choose Live for the interactive WebGL2 renderer. Live rendering needs WebGL2 support and can be substantially slower than film playback, depending on the GPU and browser.
+The viewer starts in Film mode. Choose Live for the interactive WebGL2 renderer. Live needs WebGL2, Worker/OffscreenCanvas support and a driver that completes this shader. Known stalled configurations show an explicit experimental-attempt warning. Successful film playback and responsive controls do not establish successful Live rendering.
 
 ## Controls
 
