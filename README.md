@@ -1,5 +1,11 @@
 # IRIS / 09
 
+See the [viewer compatibility guide](PORTABILITY.md) for the bounded Live worker, responsive controls, setup and the observed Intel/ANGLE limitation. Film and source downloads remain available when Live cannot run.
+
+The [native still renderer](docs/native-renderer.md) now renders the complete scene directly from the archived equations through OpenGL 3.3. Execution is verified on Windows/WGL and hosted Linux/Mesa and macOS/Mesa software OpenGL. See the [recorded hosted results](docs/native-macos-mesa.md#recorded-hosted-results). It is separate from browser Live, which still has zero verified frames on the audited Intel/ANGLE and macOS SwiftShader configurations.
+
+For actual time, camera and zoom interaction on that computer, run the [localhost native preview](docs/native-preview.md). It displays newly rendered full-scene stills and keeps the newest requested controls. The verified 160 x 90 AA2 requests took 8-12 seconds including process startup and compilation; this is not real-time playback.
+
 A procedural optical-mechanism study in one GLSL fragment pass: nine swept iris leaves, a linked actuator, recessed refractive elements, machined surfaces, and a thin-lens camera.
 
 ![IRIS-09 optical mechanism](media/iris-09-4k.png)
@@ -20,7 +26,7 @@ python3 -m http.server 8000
 
 Then open http://localhost:8000/IRIS-09-viewer.html.
 
-The viewer starts in Film mode. Choose Live for the interactive WebGL2 renderer. Live rendering needs WebGL2 support and can be substantially slower than film playback, depending on the GPU and browser.
+The viewer starts in Film mode. Choose Live for the interactive WebGL2 renderer. Live needs WebGL2, Worker/OffscreenCanvas support and a driver that completes this shader. Known stalled configurations show an explicit experimental-attempt warning. Successful film playback and responsive controls do not establish successful Live rendering.
 
 ## Controls
 
@@ -48,7 +54,7 @@ The source builds geometry and materials procedurally. Its lighting includes ani
 
 The mechanism is an animated visual study. It has not been established as a manufactured design, hardware qualification, unbiased optical simulation, or engineering-tolerance validation. The source's ten-second aperture, actuator, and camera cycle does not demonstrate mechanical feasibility.
 
-The preserved package includes the browser source and completed film, but not the original offline movie-capture script. No offline re-render command or exact pixel-reproduction claim is supplied here. Publication checks inspected source identity, media metadata, and sampled decoded frames without executing the project renderer.
+The preserved package includes the browser source and completed film, but not the original offline movie-capture script. The new native renderer produces stills with the original scene, transport and sampling equations; it does not claim to reproduce the recovered movie's capture pipeline. Publication verification and the subsequent execution checks are documented separately in the compatibility and native-renderer guides.
 
 ## License and dependencies
 

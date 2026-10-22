@@ -1,0 +1,176 @@
+{
+  "success": true,
+  "backend": "native OpenGL via loopback server; Chrome displays PNGs",
+  "browser": "145.0.7632.160",
+  "viewport": [
+    1280,
+    900
+  ],
+  "mobile_layout_only": [
+    390,
+    844
+  ],
+  "elapsed_s": 31.41438609996112,
+  "frames": [
+    {
+      "requestId": 0,
+      "state": {
+        "width": 160,
+        "height": 90,
+        "time": 0,
+        "drag": [
+          0,
+          0
+        ],
+        "scroll": 0,
+        "samples": 2,
+        "requestId": 0
+      },
+      "renderer": "Native preview rendered by local OpenGL, not browser GPU",
+      "elapsedMs": 12233.99999999674,
+      "nativeReport": {
+        "renderer_kind": "native OpenGL, not browser Live",
+        "platform": "Windows",
+        "backend": "wgl-default",
+        "renderer": "Intel(R) UHD Graphics",
+        "version": "3.3.0 - Build 31.0.101.4146",
+        "resolution": [
+          160,
+          90
+        ],
+        "time": 0.0,
+        "drag": [
+          0.0,
+          0.0
+        ],
+        "scroll": 0.0,
+        "AA": 2,
+        "camera_samples": 4,
+        "compile_ms": 5257.185299997218,
+        "render_ms": 159.21030001481995,
+        "total_ms": 8332.584900024813,
+        "finite": true,
+        "completed": true,
+        "archive_normalized_text_sha256": "455e1ba9b0740a6ab925f9c022eea5f217fd3bbfc08ffec3177fb3b1d925843b"
+      },
+      "png_sha256": "b045a5042b885f6d7c8bd911cd9bbd9d4035ff666a8157d9c732c03ab2ceab87",
+      "rgb_sha256": "9f6266d7f3e4cfa657b949c1b014f312b406397bd2c282b3567d9e0a0d8b88d2"
+    },
+    {
+      "requestId": 1,
+      "state": {
+        "width": 160,
+        "height": 90,
+        "time": 2,
+        "drag": [
+          0,
+          0
+        ],
+        "scroll": 0,
+        "samples": 2,
+        "requestId": 1
+      },
+      "renderer": "Native preview rendered by local OpenGL, not browser GPU",
+      "elapsedMs": 8125.0,
+      "nativeReport": {
+        "renderer_kind": "native OpenGL, not browser Live",
+        "platform": "Windows",
+        "backend": "wgl-default",
+        "renderer": "Intel(R) UHD Graphics",
+        "version": "3.3.0 - Build 31.0.101.4146",
+        "resolution": [
+          160,
+          90
+        ],
+        "time": 2.0,
+        "drag": [
+          0.0,
+          0.0
+        ],
+        "scroll": 0.0,
+        "AA": 2,
+        "camera_samples": 4,
+        "compile_ms": 4235.823500028346,
+        "render_ms": 179.98329998226836,
+        "total_ms": 6317.669000010937,
+        "finite": true,
+        "completed": true,
+        "archive_normalized_text_sha256": "455e1ba9b0740a6ab925f9c022eea5f217fd3bbfc08ffec3177fb3b1d925843b"
+      },
+      "png_sha256": "8a40bbb2ed13cf794b3a83b0e60f4a5cf9dae0f0d29a66c18a9a65ce499ced8f",
+      "rgb_sha256": "211eaead0ddd2e602f10db34aa8315e0aeb19868bbaebf9e89641e701e5b74db"
+    },
+    {
+      "requestId": 4,
+      "state": {
+        "width": 160,
+        "height": 90,
+        "time": 5,
+        "drag": [
+          2.661596958174905,
+          0.919931856899489
+        ],
+        "scroll": 0.12,
+        "samples": 2,
+        "requestId": 4
+      },
+      "renderer": "Native preview rendered by local OpenGL, not browser GPU",
+      "elapsedMs": 9045.999999972992,
+      "nativeReport": {
+        "renderer_kind": "native OpenGL, not browser Live",
+        "platform": "Windows",
+        "backend": "wgl-default",
+        "renderer": "Intel(R) UHD Graphics",
+        "version": "3.3.0 - Build 31.0.101.4146",
+        "resolution": [
+          160,
+          90
+        ],
+        "time": 5.0,
+        "drag": [
+          2.661596958174905,
+          0.919931856899489
+        ],
+        "scroll": 0.12,
+        "AA": 2,
+        "camera_samples": 4,
+        "compile_ms": 5364.463799982332,
+        "render_ms": 184.07139996998012,
+        "total_ms": 7482.087899988983,
+        "finite": true,
+        "completed": true,
+        "archive_normalized_text_sha256": "455e1ba9b0740a6ab925f9c022eea5f217fd3bbfc08ffec3177fb3b1d925843b"
+      },
+      "png_sha256": "a8a0d05236e5c8b48e339a8738342b84a4468bdd1621c09b352667a455429ece",
+      "rgb_sha256": "91d180f80d8d94bd5ef18d66d7cb48a1e02d4d8428b0ffddd3e988f4335de773"
+    }
+  ],
+  "completed_labels": [
+    "Completed native OpenGL frame: time 0.00 s; 160 x 90; AA2; drag 0.00, 0.00; zoom 0.00. Render 12234 ms.",
+    "Completed native OpenGL frame: time 5.00 s; 160 x 90; AA2; drag 2.66, 0.92; zoom 0.12. Render 9046 ms."
+  ],
+  "stale_response_not_presented": true,
+  "visible_frame": true,
+  "no_video_or_canvas": true,
+  "changed_rgb_components": 28070,
+  "total_rgb_components": 43200,
+  "timing": {
+    "maxHeartbeatMs": 84,
+    "samples": 621
+  },
+  "mobile_layout": {
+    "viewport": 390,
+    "width": 390,
+    "button": "44px",
+    "image": [
+      160,
+      90
+    ]
+  },
+  "page_errors": [],
+  "limitations": [
+    "Still preview; each request compiles afresh.",
+    "No browser GPU Live success claimed.",
+    "Mobile viewport emulation is not a physical mobile GPU test."
+  ]
+}

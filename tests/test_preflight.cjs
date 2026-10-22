@@ -1,0 +1,20 @@
+// Exercise the production preflight predicate without constructing a GPU.
+const fs = require('node:fs');
+const path = require('node:path');
+const vm = require('node:vm');
+const assert = require('node:assert/strict');
+const source = fs.readFileSync(path.join(__dirname, '../viewer/runtime.js'), 'utf8');
+const start = source.indexOf('  function observedLiveStall(');
+const end = source.indexOf('  function stopWorker()', start);
+assert.ok(start >= 0 && end > start);
+const scope = {};
+vm.runInNewContext(source.slice(start, end), scope);
+const swift = 'ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)';
+assert.match(scope.observedLiveStall(swift, 'MacIntel'), /software renderer/);
+assert.equal(scope.observedLiveStall(swift, 'Linux x86_64'), null);
+assert.equal(scope.observedLiveStall(swift, 'Win32'), null);
+assert.equal(scope.observedLiveStall('ANGLE (Apple, Apple M3, Metal)', 'MacIntel'), null);
+assert.equal(scope.observedLiveStall(swift.replace('10.0.0', '20.0.0'), 'MacIntel'), null);
+assert.match(scope.observedLiveStall('ANGLE (Intel, Intel UHD (0x0000A7A8), Direct3D11)', 'Win32'), /Intel UHD/);
+assert.equal(scope.observedLiveStall('ANGLE (Intel, Other (0x00000001), Direct3D11)', 'Win32'), null);
+console.log('PASS: observed adapter guard and unobserved-backend opt-in boundaries; no GPU claim');

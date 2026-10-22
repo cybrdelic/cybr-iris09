@@ -1,0 +1,73 @@
+{
+  "date": "2026-10-22",
+  "base_commit": "30763de609a87ab136e761814b1d399910b24f75",
+  "outcome": "Live unresolved: no completed frame in three bounded experiments",
+  "gpu_experiments": 3,
+  "completed_live_frames": 0,
+  "pixel_verification": "Not possible: no completed Live frame; historical media excluded",
+  "native_backend": {
+    "renderer": "Intel(R) UHD Graphics",
+    "version": "3.3.0 - Build 31.0.101.4146",
+    "context": "WGL via ModernGL/glcontext"
+  },
+  "browser_backend": {
+    "browser": "Chrome 145",
+    "renderer": "ANGLE (Intel, Intel(R) UHD Graphics (0x0000A7A8) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+    "viewport": [1280, 720],
+    "canvas": [960, 540],
+    "AA": 2,
+    "camera_samples_per_pixel": 4
+  },
+  "experiments": [
+    {
+      "number": 1,
+      "backend": "native",
+      "change": "Desktop preamble and namespace noise3 only",
+      "result": "Compile error: noise2 collides with desktop built-in return type",
+      "compile_error_after_ms": 54.1,
+      "draw_submitted": false
+    },
+    {
+      "number": 2,
+      "backend": "native",
+      "change": "Desktop preamble and namespace both noise2 and noise3",
+      "context_ready_after_s": 1.87349,
+      "compile_started_after_s": 1.87847,
+      "process_timeout_s": 45,
+      "result": "Compile/link call did not return before process timeout",
+      "draw_submitted": false
+    },
+    {
+      "number": 3,
+      "backend": "browser",
+      "change": "Exact-count uniform loops, successful-hit normal hoist, terminal shading hoist, ordered full-RGB wavelength loop",
+      "derived_shader_sha256": "b58c39c0d78443d71dfe7e65ad41c038e4f4cff976347e0cc4b3bf6ab36e1408",
+      "compiler_stages": ["vertex-compile-call", "vertex-compile-returned", "fragment-compile-call", "fragment-compile-returned", "link-call", "link-returned", "parallel-completion-wait"],
+      "compilation_timeout_s": 25,
+      "result": "Asynchronous compilation completion never reported before deadline",
+      "draw_submitted": false,
+      "ui_play_click_ms": 19.5867,
+      "main_thread_heartbeat_max_gap_ms": 79.9,
+      "heartbeat_interval_ms": 20,
+      "heartbeat_count": 1278,
+      "browser_closed_normally": true,
+      "included_in_runtime": false
+    }
+  ],
+  "archival_sources": {
+    "IRIS-09.glsl_git_blob": "47637b782090089d04f455f8befe371319fe25c7",
+    "IRIS-09-fragcoord.glsl_git_blob": "98dfbc888a57049b6bf7ae0183acc852f59e5515",
+    "embedded_shaderSource_sha256": "455e1ba9b0740a6ab925f9c022eea5f217fd3bbfc08ffec3177fb3b1d925843b",
+    "embedded_shareSource_sha256": "65d9cc416dd9fc460cc7753110d6878c5d5966f624df98489dc71f269a08a0ca",
+    "both_embedded_sources_unchanged": true
+  },
+  "limitations": [
+    "Exact translator, optimizer or driver substage is not identified",
+    "Native timeout means this is not established as an ANGLE-only issue",
+    "No original-versus-derived pixel comparison was possible",
+    "Physical mobile, other drivers, macOS and Linux GPU execution are untested",
+    "Worker termination does not guarantee driver-compiler cancellation",
+    "No source-quality reductions or historical-media substitution were used"
+  ]
+}
