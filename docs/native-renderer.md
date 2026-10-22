@@ -2,6 +2,8 @@
 
 This is a new native OpenGL still renderer derived from the preserved `IRIS-09.glsl`. It does not read a movie or substitute a historical frame. It is separate from browser Live and does not establish that WebGL works on the same driver.
 
+The [localhost native preview](native-preview.md) adds browser controls for requesting these actual stills. Its Windows time/drag/zoom flow is verified, with measured 8-12 second requests including startup and compilation.
+
 Create an isolated environment and install its dependencies:
 
 ```sh

@@ -1,0 +1,103 @@
+{
+  "passed": true,
+  "renderer_kind": "Native local OpenGL, not browser GPU",
+  "scope": "two real HTTP requests;160x90;AA2;changed time/drag/scroll",
+  "frames": [
+    {
+      "requestId": 1,
+      "state": {
+        "width": 160,
+        "height": 90,
+        "time": 0,
+        "drag": [
+          0,
+          0
+        ],
+        "scroll": 0,
+        "samples": 2,
+        "requestId": 1
+      },
+      "renderer": "Native preview rendered by local OpenGL, not browser GPU",
+      "elapsedMs": 11937.999999965541,
+      "nativeReport": {
+        "renderer_kind": "native OpenGL, not browser Live",
+        "platform": "Windows",
+        "backend": "wgl-default",
+        "renderer": "Intel(R) UHD Graphics",
+        "version": "3.3.0 - Build 31.0.101.4146",
+        "resolution": [
+          160,
+          90
+        ],
+        "time": 0.0,
+        "drag": [
+          0.0,
+          0.0
+        ],
+        "scroll": 0.0,
+        "AA": 2,
+        "camera_samples": 4,
+        "compile_ms": 6245.730999973603,
+        "render_ms": 289.3222999991849,
+        "total_ms": 8716.819999972358,
+        "finite": true,
+        "completed": true,
+        "archive_normalized_text_sha256": "455e1ba9b0740a6ab925f9c022eea5f217fd3bbfc08ffec3177fb3b1d925843b"
+      },
+      "file": "first.png",
+      "png_sha256": "b045a5042b885f6d7c8bd911cd9bbd9d4035ff666a8157d9c732c03ab2ceab87",
+      "rgb_sha256": "9f6266d7f3e4cfa657b949c1b014f312b406397bd2c282b3567d9e0a0d8b88d2",
+      "rgb_bytes": 43200
+    },
+    {
+      "requestId": 2,
+      "state": {
+        "width": 160,
+        "height": 90,
+        "time": 5,
+        "drag": [
+          18,
+          -9
+        ],
+        "scroll": 0.25,
+        "samples": 2,
+        "requestId": 2
+      },
+      "renderer": "Native preview rendered by local OpenGL, not browser GPU",
+      "elapsedMs": 10843.99999998277,
+      "nativeReport": {
+        "renderer_kind": "native OpenGL, not browser Live",
+        "platform": "Windows",
+        "backend": "wgl-default",
+        "renderer": "Intel(R) UHD Graphics",
+        "version": "3.3.0 - Build 31.0.101.4146",
+        "resolution": [
+          160,
+          90
+        ],
+        "time": 5.0,
+        "drag": [
+          18.0,
+          -9.0
+        ],
+        "scroll": 0.25,
+        "AA": 2,
+        "camera_samples": 4,
+        "compile_ms": 6036.20430000592,
+        "render_ms": 379.6071999822743,
+        "total_ms": 8516.290400002617,
+        "finite": true,
+        "completed": true,
+        "archive_normalized_text_sha256": "455e1ba9b0740a6ab925f9c022eea5f217fd3bbfc08ffec3177fb3b1d925843b"
+      },
+      "file": "changed.png",
+      "png_sha256": "918585a147eeb1979e05072a7e5c29ccdf8753a4219bd8bb2e7362dbfa907c00",
+      "rgb_sha256": "675144b906a279bc9a14b9fa700c0593971452beaca3fa0a40c10510b8e26cb6",
+      "rgb_bytes": 43200
+    }
+  ],
+  "changed_pixels": 13532,
+  "clean_shutdown": true,
+  "wall_seconds": 23.0,
+  "limits": "Bounded still preview; not browser Live or production-performance qualification."
+}

@@ -1,5 +1,9 @@
 # Live compilation investigation
 
+This historical report records the initial three-attempt phase only. See the
+[later pass investigation](live-pass-investigation.md) for subsequent numerical
+validation, native execution and the remaining browser compiler boundary.
+
 Local Windows investigation on 22 October 2026, against viewer commit
 `30763de609a87ab136e761814b1d399910b24f75`.
 

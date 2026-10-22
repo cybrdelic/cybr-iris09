@@ -1,0 +1,1779 @@
+{
+  "date": "2026-10-22",
+  "status": "Native complete-scene execution verified; browser GPU Live remains unresolved",
+  "native_renderer_commit": "c48283e8165c8d37e7962d750eac852dcd4f95be",
+  "native_ci_commit": "3b8aaffb29b6f12d4662575060280133c29d57be",
+  "reference": "Frozen original single-wavelength AA2 shader wrappers at all three original dispersion values; four time/camera snapshots; linear RGB float32; CAPTURE never enabled",
+  "max_abs_acceptance": 1e-05,
+  "archival_sources": {
+    "IRIS-09.glsl_git_blob": "47637b782090089d04f455f8befe371319fe25c7",
+    "IRIS-09-fragcoord.glsl_git_blob": "98dfbc888a57049b6bf7ae0183acc852f59e5515",
+    "embedded_shaderSource_sha256": "455e1ba9b0740a6ab925f9c022eea5f217fd3bbfc08ffec3177fb3b1d925843b",
+    "embedded_shareSource_sha256": "65d9cc416dd9fc460cc7753110d6878c5d5966f624df98489dc71f269a08a0ca",
+    "both_embedded_sources_unchanged": true
+  },
+  "native_experiments": [
+    {
+      "generator": "combined_shade_wavefront_shader",
+      "success": true,
+      "width": 128,
+      "height": 72,
+      "AA": 2,
+      "bounce_iterations": 24,
+      "max_abs_threshold": 1e-05,
+      "compared_rgb_components": 331776,
+      "max_abs": 2.384185791015625e-07,
+      "elapsed_s": 9.713786399981473,
+      "renderer": "Intel(R) UHD Graphics",
+      "version": "3.3.0 - Build 31.0.101.4146",
+      "compile_ms": {
+        "init": 587.4096999759786,
+        "scene": 184.58760000066832,
+        "reflection": 2088.079300010577,
+        "shade": 2034.5774999586865,
+        "update": 35.76609998708591,
+        "accumulation": 4.319200001191348,
+        "composition": 7.013200025539845
+      },
+      "draw_counts": {
+        "init": 48,
+        "scene": 1152,
+        "reflection": 1152,
+        "shade": 1152,
+        "update": 1152,
+        "accumulation": 48,
+        "composition": 4
+      },
+      "sources": {
+        "init": {
+          "bytes": 41055,
+          "sha256": "a6e63e921364ba56a2c767f5aab0f934016d5eff31414de65deff7b4a8040c80",
+          "functions": [
+            "sat",
+            "sat",
+            "sq",
+            "rot",
+            "hash12",
+            "hash22",
+            "cybr_scalar_noise2",
+            "cybr_scalar_noise3",
+            "sdRoundBox2",
+            "sdBox",
+            "sdRoundBox3",
+            "actuatorAngle",
+            "nearer",
+            "sphereRoots",
+            "bodyMap",
+            "bodyNormal",
+            "missHit",
+            "irisHingeAngle",
+            "irisClipPlane",
+            "irisClipCircle",
+            "irisClipArc",
+            "irisBladeEdgeOutward",
+            "irisBladeEdgeDistance",
+            "hitIris",
+            "opaqueHit",
+            "capIntersection",
+            "lensIntersection",
+            "sceneHit",
+            "getLight",
+            "studioBackground",
+            "softboxRadiance",
+            "environment",
+            "ambientOcclusion",
+            "shadow",
+            "fresnelSchlick",
+            "lineMask",
+            "ringScale",
+            "strokeSegment",
+            "letterDistance",
+            "engravingText",
+            "faceHandlingMarks",
+            "faceStamp",
+            "materialAt",
+            "gaussNode",
+            "ggxLambda",
+            "microfacetBRDF",
+            "opaqueShade",
+            "opticalTransport",
+            "wavelengthRay",
+            "main"
+          ]
+        },
+        "scene": {
+          "bytes": 19657,
+          "sha256": "a1e25f44a9397ee1b39e5bd9328bae71166e5e59dd34d0ea3a046a34501b8aa9",
+          "functions": [
+            "rot",
+            "sdRoundBox2",
+            "sdBox",
+            "sdRoundBox3",
+            "actuatorAngle",
+            "nearer",
+            "sphereRoots",
+            "bodyMap",
+            "bodyNormal",
+            "missHit",
+            "irisHingeAngle",
+            "irisClipPlane",
+            "irisClipCircle",
+            "irisClipArc",
+            "irisBladeEdgeDistance",
+            "hitIris",
+            "opaqueHit",
+            "capIntersection",
+            "lensIntersection",
+            "sceneHit",
+            "writeHit",
+            "main"
+          ]
+        },
+        "reflection": {
+          "bytes": 39855,
+          "sha256": "5e9e074721b3c9c2777bf0c11d205f1fc6437f4bc7ef25849131c9223bbe964c",
+          "functions": [
+            "sat",
+            "sat",
+            "sq",
+            "rot",
+            "hash12",
+            "cybr_scalar_noise2",
+            "cybr_scalar_noise3",
+            "sdRoundBox2",
+            "sdBox",
+            "sdRoundBox3",
+            "actuatorAngle",
+            "nearer",
+            "sphereRoots",
+            "bodyMap",
+            "bodyNormal",
+            "missHit",
+            "irisHingeAngle",
+            "irisClipPlane",
+            "irisClipCircle",
+            "irisClipArc",
+            "irisBladeEdgeOutward",
+            "irisBladeEdgeDistance",
+            "hitIris",
+            "opaqueHit",
+            "getLight",
+            "studioBackground",
+            "softboxRadiance",
+            "environment",
+            "ambientOcclusion",
+            "shadow",
+            "fresnelSchlick",
+            "lineMask",
+            "ringScale",
+            "strokeSegment",
+            "letterDistance",
+            "engravingText",
+            "faceHandlingMarks",
+            "faceStamp",
+            "materialAt",
+            "gaussNode",
+            "ggxLambda",
+            "microfacetBRDF",
+            "opaqueShade",
+            "opticalIOR",
+            "decodeHit",
+            "currentHit",
+            "writeHit",
+            "main"
+          ]
+        },
+        "shade": {
+          "bytes": 38756,
+          "sha256": "0adaab4ad616e0286a03c3d77ade8b6c06461bb52234a103aefad492b32247aa",
+          "functions": [
+            "sat",
+            "sat",
+            "sq",
+            "rot",
+            "hash12",
+            "cybr_scalar_noise2",
+            "cybr_scalar_noise3",
+            "sdRoundBox2",
+            "sdBox",
+            "sdRoundBox3",
+            "actuatorAngle",
+            "nearer",
+            "sphereRoots",
+            "bodyMap",
+            "bodyNormal",
+            "missHit",
+            "irisHingeAngle",
+            "irisClipPlane",
+            "irisClipCircle",
+            "irisClipArc",
+            "irisBladeEdgeOutward",
+            "irisBladeEdgeDistance",
+            "hitIris",
+            "opaqueHit",
+            "capIntersection",
+            "lensIntersection",
+            "sceneHit",
+            "getLight",
+            "studioBackground",
+            "softboxRadiance",
+            "ambientOcclusion",
+            "shadow",
+            "fresnelSchlick",
+            "lineMask",
+            "ringScale",
+            "strokeSegment",
+            "letterDistance",
+            "engravingText",
+            "faceHandlingMarks",
+            "faceStamp",
+            "materialAt",
+            "gaussNode",
+            "ggxLambda",
+            "microfacetBRDF",
+            "opaqueShade",
+            "decodeHit",
+            "currentHit",
+            "main"
+          ]
+        },
+        "update": {
+          "bytes": 12003,
+          "sha256": "00edcd4d28e8e85e4dd9029d2e91394dbafd5e8291f7a0465730e6c69fe13873",
+          "functions": [
+            "sat",
+            "sat",
+            "sq",
+            "sdRoundBox2",
+            "getLight",
+            "studioBackground",
+            "softboxRadiance",
+            "environment",
+            "coatingFresnel",
+            "opticalIOR",
+            "opticalAbsorption",
+            "opticalFresnel",
+            "decodeHit",
+            "currentHit",
+            "reflectedHit",
+            "writeState",
+            "main"
+          ]
+        },
+        "accumulation": {
+          "bytes": 209,
+          "sha256": "868b65fa6386afa82bc635a3334a0d9baa19ae7a6d16f5115dd84bf9e0746500",
+          "functions": [
+            "main"
+          ]
+        },
+        "composition": {
+          "bytes": 5270,
+          "sha256": "67b3ca6a282c4a45631bdf4bda2c16ed21b0669df365a9b8e6a567cbfb11573a",
+          "functions": [
+            "sat",
+            "sat",
+            "hash12",
+            "aces",
+            "main"
+          ]
+        }
+      },
+      "checks": [
+        {
+          "snapshot": 0,
+          "channel": 0,
+          "dispersion": -0.003,
+          "inputs": {
+            "time": 0.0,
+            "drag": [
+              0.0,
+              0.0
+            ],
+            "scroll": 0.0
+          },
+          "elapsed_ms": 263.14779999665916,
+          "finite": true,
+          "max_abs": 2.384185791015625e-07,
+          "mean_abs": 1.6310218731163673e-09,
+          "different_components": 1288,
+          "above_threshold_components": 0,
+          "reference_file": "suite--0.003-s0-c0.npy"
+        },
+        {
+          "snapshot": 0,
+          "channel": 1,
+          "dispersion": 0.0,
+          "inputs": {
+            "time": 0.0,
+            "drag": [
+              0.0,
+              0.0
+            ],
+            "scroll": 0.0
+          },
+          "elapsed_ms": 212.25260000210255,
+          "finite": true,
+          "max_abs": 2.384185791015625e-07,
+          "mean_abs": 1.6302861283179482e-09,
+          "different_components": 1277,
+          "above_threshold_components": 0,
+          "reference_file": "suite-0.0-s0-c1.npy"
+        },
+        {
+          "snapshot": 0,
+          "channel": 2,
+          "dispersion": 0.005,
+          "inputs": {
+            "time": 0.0,
+            "drag": [
+              0.0,
+              0.0
+            ],
+            "scroll": 0.0
+          },
+          "elapsed_ms": 219.86770001240075,
+          "finite": true,
+          "max_abs": 2.384185791015625e-07,
+          "mean_abs": 1.6302187377803534e-09,
+          "different_components": 1277,
+          "above_threshold_components": 0,
+          "reference_file": "suite-0.005-s0-c2.npy"
+        },
+        {
+          "snapshot": 1,
+          "channel": 0,
+          "dispersion": -0.003,
+          "inputs": {
+            "time": 2.5,
+            "drag": [
+              12.0,
+              -3.0
+            ],
+            "scroll": 2.0
+          },
+          "elapsed_ms": 247.00630002189428,
+          "finite": true,
+          "max_abs": 2.384185791015625e-07,
+          "mean_abs": 2.3289759010225453e-09,
+          "different_components": 2161,
+          "above_threshold_components": 0,
+          "reference_file": "suite--0.003-s1-c0.npy"
+        },
+        {
+          "snapshot": 1,
+          "channel": 1,
+          "dispersion": 0.0,
+          "inputs": {
+            "time": 2.5,
+            "drag": [
+              12.0,
+              -3.0
+            ],
+            "scroll": 2.0
+          },
+          "elapsed_ms": 244.38049999298528,
+          "finite": true,
+          "max_abs": 2.384185791015625e-07,
+          "mean_abs": 2.270637677881382e-09,
+          "different_components": 2103,
+          "above_threshold_components": 0,
+          "reference_file": "suite-0.0-s1-c1.npy"
+        },
+        {
+          "snapshot": 1,
+          "channel": 2,
+          "dispersion": 0.005,
+          "inputs": {
+            "time": 2.5,
+            "drag": [
+              12.0,
+              -3.0
+            ],
+            "scroll": 2.0
+          },
+          "elapsed_ms": 222.6389999850653,
+          "finite": true,
+          "max_abs": 2.384185791015625e-07,
+          "mean_abs": 2.2914212749469698e-09,
+          "different_components": 2112,
+          "above_threshold_components": 0,
+          "reference_file": "suite-0.005-s1-c2.npy"
+        },
+        {
+          "snapshot": 2,
+          "channel": 0,
+          "dispersion": -0.003,
+          "inputs": {
+            "time": 5.0,
+            "drag": [
+              -20.0,
+              9.0
+            ],
+            "scroll": -1.0
+          },
+          "elapsed_ms": 256.95660000201315,
+          "finite": true,
+          "max_abs": 2.384185791015625e-07,
+          "mean_abs": 7.406855129232781e-10,
+          "different_components": 1184,
+          "above_threshold_components": 0,
+          "reference_file": "suite--0.003-s2-c0.npy"
+        },
+        {
+          "snapshot": 2,
+          "channel": 1,
+          "dispersion": 0.0,
+          "inputs": {
+            "time": 5.0,
+            "drag": [
+              -20.0,
+              9.0
+            ],
+            "scroll": -1.0
+          },
+          "elapsed_ms": 235.48690002644435,
+          "finite": true,
+          "max_abs": 2.384185791015625e-07,
+          "mean_abs": 7.404086788120878e-10,
+          "different_components": 1145,
+          "above_threshold_components": 0,
+          "reference_file": "suite-0.0-s2-c1.npy"
+        },
+        {
+          "snapshot": 2,
+          "channel": 2,
+          "dispersion": 0.005,
+          "inputs": {
+            "time": 5.0,
+            "drag": [
+              -20.0,
+              9.0
+            ],
+            "scroll": -1.0
+          },
+          "elapsed_ms": 235.7969000004232,
+          "finite": true,
+          "max_abs": 2.384185791015625e-07,
+          "mean_abs": 7.40231820284265e-10,
+          "different_components": 1142,
+          "above_threshold_components": 0,
+          "reference_file": "suite-0.005-s2-c2.npy"
+        },
+        {
+          "snapshot": 3,
+          "channel": 0,
+          "dispersion": -0.003,
+          "inputs": {
+            "time": 9.9,
+            "drag": [
+              0.0,
+              0.0
+            ],
+            "scroll": 0.0
+          },
+          "elapsed_ms": 258.0577000044286,
+          "finite": true,
+          "max_abs": 2.384185791015625e-07,
+          "mean_abs": 1.6191953333688502e-09,
+          "different_components": 1285,
+          "above_threshold_components": 0,
+          "reference_file": "suite--0.003-s3-c0.npy"
+        },
+        {
+          "snapshot": 3,
+          "channel": 1,
+          "dispersion": 0.0,
+          "inputs": {
+            "time": 9.9,
+            "drag": [
+              0.0,
+              0.0
+            ],
+            "scroll": 0.0
+          },
+          "elapsed_ms": 236.08010000316426,
+          "finite": true,
+          "max_abs": 2.384185791015625e-07,
+          "mean_abs": 1.6193300034217373e-09,
+          "different_components": 1280,
+          "above_threshold_components": 0,
+          "reference_file": "suite-0.0-s3-c1.npy"
+        },
+        {
+          "snapshot": 3,
+          "channel": 2,
+          "dispersion": 0.005,
+          "inputs": {
+            "time": 9.9,
+            "drag": [
+              0.0,
+              0.0
+            ],
+            "scroll": 0.0
+          },
+          "elapsed_ms": 234.83729996951297,
+          "finite": true,
+          "max_abs": 2.384185791015625e-07,
+          "mean_abs": 1.6194311447392806e-09,
+          "different_components": 1280,
+          "above_threshold_components": 0,
+          "reference_file": "suite-0.005-s3-c2.npy"
+        }
+      ]
+    },
+    {
+      "generator": "terminal_opaque_wavefront_shader",
+      "success": true,
+      "width": 128,
+      "height": 72,
+      "AA": 2,
+      "bounce_iterations": 24,
+      "max_abs_threshold": 1e-05,
+      "compared_rgb_components": 331776,
+      "max_abs": 2.384185791015625e-07,
+      "elapsed_s": 11.236526900029276,
+      "renderer": "Intel(R) UHD Graphics",
+      "version": "3.3.0 - Build 31.0.101.4146",
+      "compile_ms": {
+        "init": 588.9202000107616,
+        "scene": 209.84990004217252,
+        "reflection": 588.1917999940924,
+        "shade": 2748.4835000359453,
+        "update": 47.47210000641644,
+        "accumulation": 7.353799999691546,
+        "composition": 11.640000040642917
+      },
+      "draw_counts": {
+        "init": 48,
+        "scene": 1152,
+        "reflection": 1152,
+        "shade": 1152,
+        "update": 1152,
+        "accumulation": 48,
+        "composition": 4
+      },
+      "sources": {
+        "init": {
+          "bytes": 41055,
+          "sha256": "a6e63e921364ba56a2c767f5aab0f934016d5eff31414de65deff7b4a8040c80",
+          "functions": [
+            "sat",
+            "sat",
+            "sq",
+            "rot",
+            "hash12",
+            "hash22",
+            "cybr_scalar_noise2",
+            "cybr_scalar_noise3",
+            "sdRoundBox2",
+            "sdBox",
+            "sdRoundBox3",
+            "actuatorAngle",
+            "nearer",
+            "sphereRoots",
+            "bodyMap",
+            "bodyNormal",
+            "missHit",
+            "irisHingeAngle",
+            "irisClipPlane",
+            "irisClipCircle",
+            "irisClipArc",
+            "irisBladeEdgeOutward",
+            "irisBladeEdgeDistance",
+            "hitIris",
+            "opaqueHit",
+            "capIntersection",
+            "lensIntersection",
+            "sceneHit",
+            "getLight",
+            "studioBackground",
+            "softboxRadiance",
+            "environment",
+            "ambientOcclusion",
+            "shadow",
+            "fresnelSchlick",
+            "lineMask",
+            "ringScale",
+            "strokeSegment",
+            "letterDistance",
+            "engravingText",
+            "faceHandlingMarks",
+            "faceStamp",
+            "materialAt",
+            "gaussNode",
+            "ggxLambda",
+            "microfacetBRDF",
+            "opaqueShade",
+            "opticalTransport",
+            "wavelengthRay",
+            "main"
+          ]
+        },
+        "scene": {
+          "bytes": 19657,
+          "sha256": "a1e25f44a9397ee1b39e5bd9328bae71166e5e59dd34d0ea3a046a34501b8aa9",
+          "functions": [
+            "rot",
+            "sdRoundBox2",
+            "sdBox",
+            "sdRoundBox3",
+            "actuatorAngle",
+            "nearer",
+            "sphereRoots",
+            "bodyMap",
+            "bodyNormal",
+            "missHit",
+            "irisHingeAngle",
+            "irisClipPlane",
+            "irisClipCircle",
+            "irisClipArc",
+            "irisBladeEdgeDistance",
+            "hitIris",
+            "opaqueHit",
+            "capIntersection",
+            "lensIntersection",
+            "sceneHit",
+            "writeHit",
+            "main"
+          ]
+        },
+        "reflection": {
+          "bytes": 39855,
+          "sha256": "5e9e074721b3c9c2777bf0c11d205f1fc6437f4bc7ef25849131c9223bbe964c",
+          "functions": [
+            "sat",
+            "sat",
+            "sq",
+            "rot",
+            "hash12",
+            "cybr_scalar_noise2",
+            "cybr_scalar_noise3",
+            "sdRoundBox2",
+            "sdBox",
+            "sdRoundBox3",
+            "actuatorAngle",
+            "nearer",
+            "sphereRoots",
+            "bodyMap",
+            "bodyNormal",
+            "missHit",
+            "irisHingeAngle",
+            "irisClipPlane",
+            "irisClipCircle",
+            "irisClipArc",
+            "irisBladeEdgeOutward",
+            "irisBladeEdgeDistance",
+            "hitIris",
+            "opaqueHit",
+            "getLight",
+            "studioBackground",
+            "softboxRadiance",
+            "environment",
+            "ambientOcclusion",
+            "shadow",
+            "fresnelSchlick",
+            "lineMask",
+            "ringScale",
+            "strokeSegment",
+            "letterDistance",
+            "engravingText",
+            "faceHandlingMarks",
+            "faceStamp",
+            "materialAt",
+            "gaussNode",
+            "ggxLambda",
+            "microfacetBRDF",
+            "opaqueShade",
+            "opticalIOR",
+            "decodeHit",
+            "currentHit",
+            "writeHit",
+            "main"
+          ]
+        },
+        "shade": {
+          "bytes": 37822,
+          "sha256": "d82ca20fd9cc6a191610233ab16ab99b400f0d4c79c032c0faaec39be523fbb6",
+          "functions": [
+            "sat",
+            "sat",
+            "sq",
+            "rot",
+            "hash12",
+            "cybr_scalar_noise2",
+            "cybr_scalar_noise3",
+            "sdRoundBox2",
+            "sdBox",
+            "sdRoundBox3",
+            "actuatorAngle",
+            "nearer",
+            "sphereRoots",
+            "bodyMap",
+            "bodyNormal",
+            "missHit",
+            "irisHingeAngle",
+            "irisClipPlane",
+            "irisClipCircle",
+            "irisClipArc",
+            "irisBladeEdgeOutward",
+            "irisBladeEdgeDistance",
+            "hitIris",
+            "opaqueHit",
+            "getLight",
+            "studioBackground",
+            "softboxRadiance",
+            "ambientOcclusion",
+            "shadow",
+            "fresnelSchlick",
+            "lineMask",
+            "ringScale",
+            "strokeSegment",
+            "letterDistance",
+            "engravingText",
+            "faceHandlingMarks",
+            "faceStamp",
+            "materialAt",
+            "gaussNode",
+            "ggxLambda",
+            "microfacetBRDF",
+            "opaqueShade",
+            "decodeHit",
+            "currentHit",
+            "main"
+          ]
+        },
+        "update": {
+          "bytes": 12003,
+          "sha256": "00edcd4d28e8e85e4dd9029d2e91394dbafd5e8291f7a0465730e6c69fe13873",
+          "functions": [
+            "sat",
+            "sat",
+            "sq",
+            "sdRoundBox2",
+            "getLight",
+            "studioBackground",
+            "softboxRadiance",
+            "environment",
+            "coatingFresnel",
+            "opticalIOR",
+            "opticalAbsorption",
+            "opticalFresnel",
+            "decodeHit",
+            "currentHit",
+            "reflectedHit",
+            "writeState",
+            "main"
+          ]
+        },
+        "accumulation": {
+          "bytes": 209,
+          "sha256": "868b65fa6386afa82bc635a3334a0d9baa19ae7a6d16f5115dd84bf9e0746500",
+          "functions": [
+            "main"
+          ]
+        },
+        "composition": {
+          "bytes": 5270,
+          "sha256": "67b3ca6a282c4a45631bdf4bda2c16ed21b0669df365a9b8e6a567cbfb11573a",
+          "functions": [
+            "sat",
+            "sat",
+            "hash12",
+            "aces",
+            "main"
+          ]
+        }
+      },
+      "checks": [
+        {
+          "snapshot": 0,
+          "channel": 0,
+          "dispersion": -0.003,
+          "inputs": {
+            "time": 0.0,
+            "drag": [
+              0.0,
+              0.0
+            ],
+            "scroll": 0.0
+          },
+          "elapsed_ms": 445.1862000278197,
+          "finite": true,
+          "max_abs": 2.384185791015625e-07,
+          "mean_abs": 1.6310218731163673e-09,
+          "different_components": 1288,
+          "above_threshold_components": 0,
+          "reference_file": "suite--0.003-s0-c0.npy"
+        },
+        {
+          "snapshot": 0,
+          "channel": 1,
+          "dispersion": 0.0,
+          "inputs": {
+            "time": 0.0,
+            "drag": [
+              0.0,
+              0.0
+            ],
+            "scroll": 0.0
+          },
+          "elapsed_ms": 327.7570999925956,
+          "finite": true,
+          "max_abs": 2.384185791015625e-07,
+          "mean_abs": 1.6302861283179482e-09,
+          "different_components": 1277,
+          "above_threshold_components": 0,
+          "reference_file": "suite-0.0-s0-c1.npy"
+        },
+        {
+          "snapshot": 0,
+          "channel": 2,
+          "dispersion": 0.005,
+          "inputs": {
+            "time": 0.0,
+            "drag": [
+              0.0,
+              0.0
+            ],
+            "scroll": 0.0
+          },
+          "elapsed_ms": 354.6492999885231,
+          "finite": true,
+          "max_abs": 2.384185791015625e-07,
+          "mean_abs": 1.6302187377803534e-09,
+          "different_components": 1277,
+          "above_threshold_components": 0,
+          "reference_file": "suite-0.005-s0-c2.npy"
+        },
+        {
+          "snapshot": 1,
+          "channel": 0,
+          "dispersion": -0.003,
+          "inputs": {
+            "time": 2.5,
+            "drag": [
+              12.0,
+              -3.0
+            ],
+            "scroll": 2.0
+          },
+          "elapsed_ms": 454.97070002602413,
+          "finite": true,
+          "max_abs": 2.384185791015625e-07,
+          "mean_abs": 2.3289759010225453e-09,
+          "different_components": 2161,
+          "above_threshold_components": 0,
+          "reference_file": "suite--0.003-s1-c0.npy"
+        },
+        {
+          "snapshot": 1,
+          "channel": 1,
+          "dispersion": 0.0,
+          "inputs": {
+            "time": 2.5,
+            "drag": [
+              12.0,
+              -3.0
+            ],
+            "scroll": 2.0
+          },
+          "elapsed_ms": 428.00309997983277,
+          "finite": true,
+          "max_abs": 2.384185791015625e-07,
+          "mean_abs": 2.270637677881382e-09,
+          "different_components": 2103,
+          "above_threshold_components": 0,
+          "reference_file": "suite-0.0-s1-c1.npy"
+        },
+        {
+          "snapshot": 1,
+          "channel": 2,
+          "dispersion": 0.005,
+          "inputs": {
+            "time": 2.5,
+            "drag": [
+              12.0,
+              -3.0
+            ],
+            "scroll": 2.0
+          },
+          "elapsed_ms": 411.18490003282204,
+          "finite": true,
+          "max_abs": 2.384185791015625e-07,
+          "mean_abs": 2.2914212749469698e-09,
+          "different_components": 2112,
+          "above_threshold_components": 0,
+          "reference_file": "suite-0.005-s1-c2.npy"
+        },
+        {
+          "snapshot": 2,
+          "channel": 0,
+          "dispersion": -0.003,
+          "inputs": {
+            "time": 5.0,
+            "drag": [
+              -20.0,
+              9.0
+            ],
+            "scroll": -1.0
+          },
+          "elapsed_ms": 461.70769998570904,
+          "finite": true,
+          "max_abs": 2.384185791015625e-07,
+          "mean_abs": 7.406855129232781e-10,
+          "different_components": 1184,
+          "above_threshold_components": 0,
+          "reference_file": "suite--0.003-s2-c0.npy"
+        },
+        {
+          "snapshot": 2,
+          "channel": 1,
+          "dispersion": 0.0,
+          "inputs": {
+            "time": 5.0,
+            "drag": [
+              -20.0,
+              9.0
+            ],
+            "scroll": -1.0
+          },
+          "elapsed_ms": 414.06899999128655,
+          "finite": true,
+          "max_abs": 2.384185791015625e-07,
+          "mean_abs": 7.404086788120878e-10,
+          "different_components": 1145,
+          "above_threshold_components": 0,
+          "reference_file": "suite-0.0-s2-c1.npy"
+        },
+        {
+          "snapshot": 2,
+          "channel": 2,
+          "dispersion": 0.005,
+          "inputs": {
+            "time": 5.0,
+            "drag": [
+              -20.0,
+              9.0
+            ],
+            "scroll": -1.0
+          },
+          "elapsed_ms": 412.73400001227856,
+          "finite": true,
+          "max_abs": 2.384185791015625e-07,
+          "mean_abs": 7.40231820284265e-10,
+          "different_components": 1142,
+          "above_threshold_components": 0,
+          "reference_file": "suite-0.005-s2-c2.npy"
+        },
+        {
+          "snapshot": 3,
+          "channel": 0,
+          "dispersion": -0.003,
+          "inputs": {
+            "time": 9.9,
+            "drag": [
+              0.0,
+              0.0
+            ],
+            "scroll": 0.0
+          },
+          "elapsed_ms": 415.72910000104457,
+          "finite": true,
+          "max_abs": 2.384185791015625e-07,
+          "mean_abs": 1.6191953333688502e-09,
+          "different_components": 1285,
+          "above_threshold_components": 0,
+          "reference_file": "suite--0.003-s3-c0.npy"
+        },
+        {
+          "snapshot": 3,
+          "channel": 1,
+          "dispersion": 0.0,
+          "inputs": {
+            "time": 9.9,
+            "drag": [
+              0.0,
+              0.0
+            ],
+            "scroll": 0.0
+          },
+          "elapsed_ms": 397.8939999942668,
+          "finite": true,
+          "max_abs": 2.384185791015625e-07,
+          "mean_abs": 1.6193300034217373e-09,
+          "different_components": 1280,
+          "above_threshold_components": 0,
+          "reference_file": "suite-0.0-s3-c1.npy"
+        },
+        {
+          "snapshot": 3,
+          "channel": 2,
+          "dispersion": 0.005,
+          "inputs": {
+            "time": 9.9,
+            "drag": [
+              0.0,
+              0.0
+            ],
+            "scroll": 0.0
+          },
+          "elapsed_ms": 392.8592000156641,
+          "finite": true,
+          "max_abs": 2.384185791015625e-07,
+          "mean_abs": 1.6194311447392806e-09,
+          "different_components": 1280,
+          "above_threshold_components": 0,
+          "reference_file": "suite-0.005-s3-c2.npy"
+        }
+      ]
+    },
+    {
+      "generator": "guarded_terminal_wavefront_shader",
+      "success": false,
+      "width": 128,
+      "height": 72,
+      "AA": 2,
+      "bounce_iterations": 24,
+      "max_abs_threshold": 1e-05,
+      "compared_rgb_components": 331776,
+      "max_abs": 2.8192996978759766e-05,
+      "elapsed_s": 12.004277800035197,
+      "renderer": "Intel(R) UHD Graphics",
+      "version": "3.3.0 - Build 31.0.101.4146",
+      "compile_ms": {
+        "init": 825.8458999916911,
+        "scene": 269.8382000089623,
+        "reflection": 689.6076000411995,
+        "shade": 2868.3094999869354,
+        "update": 55.12889998499304,
+        "accumulation": 7.0810000179335475,
+        "composition": 10.676599980797619
+      },
+      "draw_counts": {
+        "init": 48,
+        "scene": 1152,
+        "reflection": 1152,
+        "shade": 1152,
+        "update": 1152,
+        "accumulation": 48,
+        "composition": 4
+      },
+      "sources": {
+        "init": {
+          "bytes": 41055,
+          "sha256": "a6e63e921364ba56a2c767f5aab0f934016d5eff31414de65deff7b4a8040c80",
+          "functions": [
+            "sat",
+            "sat",
+            "sq",
+            "rot",
+            "hash12",
+            "hash22",
+            "cybr_scalar_noise2",
+            "cybr_scalar_noise3",
+            "sdRoundBox2",
+            "sdBox",
+            "sdRoundBox3",
+            "actuatorAngle",
+            "nearer",
+            "sphereRoots",
+            "bodyMap",
+            "bodyNormal",
+            "missHit",
+            "irisHingeAngle",
+            "irisClipPlane",
+            "irisClipCircle",
+            "irisClipArc",
+            "irisBladeEdgeOutward",
+            "irisBladeEdgeDistance",
+            "hitIris",
+            "opaqueHit",
+            "capIntersection",
+            "lensIntersection",
+            "sceneHit",
+            "getLight",
+            "studioBackground",
+            "softboxRadiance",
+            "environment",
+            "ambientOcclusion",
+            "shadow",
+            "fresnelSchlick",
+            "lineMask",
+            "ringScale",
+            "strokeSegment",
+            "letterDistance",
+            "engravingText",
+            "faceHandlingMarks",
+            "faceStamp",
+            "materialAt",
+            "gaussNode",
+            "ggxLambda",
+            "microfacetBRDF",
+            "opaqueShade",
+            "opticalTransport",
+            "wavelengthRay",
+            "main"
+          ]
+        },
+        "scene": {
+          "bytes": 19657,
+          "sha256": "a1e25f44a9397ee1b39e5bd9328bae71166e5e59dd34d0ea3a046a34501b8aa9",
+          "functions": [
+            "rot",
+            "sdRoundBox2",
+            "sdBox",
+            "sdRoundBox3",
+            "actuatorAngle",
+            "nearer",
+            "sphereRoots",
+            "bodyMap",
+            "bodyNormal",
+            "missHit",
+            "irisHingeAngle",
+            "irisClipPlane",
+            "irisClipCircle",
+            "irisClipArc",
+            "irisBladeEdgeDistance",
+            "hitIris",
+            "opaqueHit",
+            "capIntersection",
+            "lensIntersection",
+            "sceneHit",
+            "writeHit",
+            "main"
+          ]
+        },
+        "reflection": {
+          "bytes": 39855,
+          "sha256": "5e9e074721b3c9c2777bf0c11d205f1fc6437f4bc7ef25849131c9223bbe964c",
+          "functions": [
+            "sat",
+            "sat",
+            "sq",
+            "rot",
+            "hash12",
+            "cybr_scalar_noise2",
+            "cybr_scalar_noise3",
+            "sdRoundBox2",
+            "sdBox",
+            "sdRoundBox3",
+            "actuatorAngle",
+            "nearer",
+            "sphereRoots",
+            "bodyMap",
+            "bodyNormal",
+            "missHit",
+            "irisHingeAngle",
+            "irisClipPlane",
+            "irisClipCircle",
+            "irisClipArc",
+            "irisBladeEdgeOutward",
+            "irisBladeEdgeDistance",
+            "hitIris",
+            "opaqueHit",
+            "getLight",
+            "studioBackground",
+            "softboxRadiance",
+            "environment",
+            "ambientOcclusion",
+            "shadow",
+            "fresnelSchlick",
+            "lineMask",
+            "ringScale",
+            "strokeSegment",
+            "letterDistance",
+            "engravingText",
+            "faceHandlingMarks",
+            "faceStamp",
+            "materialAt",
+            "gaussNode",
+            "ggxLambda",
+            "microfacetBRDF",
+            "opaqueShade",
+            "opticalIOR",
+            "decodeHit",
+            "currentHit",
+            "writeHit",
+            "main"
+          ]
+        },
+        "shade": {
+          "bytes": 38891,
+          "sha256": "cb72b4bdfddfe10a109b99906ec431154fa555641ef96db0c0fb66760df971b5",
+          "functions": [
+            "sat",
+            "sat",
+            "sq",
+            "rot",
+            "hash12",
+            "cybr_scalar_noise2",
+            "cybr_scalar_noise3",
+            "sdRoundBox2",
+            "sdBox",
+            "sdRoundBox3",
+            "actuatorAngle",
+            "nearer",
+            "sphereRoots",
+            "bodyMap",
+            "bodyNormal",
+            "missHit",
+            "irisHingeAngle",
+            "irisClipPlane",
+            "irisClipCircle",
+            "irisClipArc",
+            "irisBladeEdgeOutward",
+            "irisBladeEdgeDistance",
+            "hitIris",
+            "opaqueHit",
+            "getLight",
+            "studioBackground",
+            "softboxRadiance",
+            "environment",
+            "ambientOcclusion",
+            "shadow",
+            "fresnelSchlick",
+            "lineMask",
+            "ringScale",
+            "strokeSegment",
+            "letterDistance",
+            "engravingText",
+            "faceHandlingMarks",
+            "faceStamp",
+            "materialAt",
+            "gaussNode",
+            "ggxLambda",
+            "microfacetBRDF",
+            "opaqueShade",
+            "decodeHit",
+            "currentHit",
+            "terminalRay",
+            "main"
+          ]
+        },
+        "update": {
+          "bytes": 12003,
+          "sha256": "00edcd4d28e8e85e4dd9029d2e91394dbafd5e8291f7a0465730e6c69fe13873",
+          "functions": [
+            "sat",
+            "sat",
+            "sq",
+            "sdRoundBox2",
+            "getLight",
+            "studioBackground",
+            "softboxRadiance",
+            "environment",
+            "coatingFresnel",
+            "opticalIOR",
+            "opticalAbsorption",
+            "opticalFresnel",
+            "decodeHit",
+            "currentHit",
+            "reflectedHit",
+            "writeState",
+            "main"
+          ]
+        },
+        "accumulation": {
+          "bytes": 209,
+          "sha256": "868b65fa6386afa82bc635a3334a0d9baa19ae7a6d16f5115dd84bf9e0746500",
+          "functions": [
+            "main"
+          ]
+        },
+        "composition": {
+          "bytes": 5270,
+          "sha256": "67b3ca6a282c4a45631bdf4bda2c16ed21b0669df365a9b8e6a567cbfb11573a",
+          "functions": [
+            "sat",
+            "sat",
+            "hash12",
+            "aces",
+            "main"
+          ]
+        }
+      },
+      "checks": [
+        {
+          "snapshot": 0,
+          "channel": 0,
+          "dispersion": -0.003,
+          "inputs": {
+            "time": 0.0,
+            "drag": [
+              0.0,
+              0.0
+            ],
+            "scroll": 0.0
+          },
+          "elapsed_ms": 375.6664000102319,
+          "finite": true,
+          "max_abs": 5.116453394293785e-07,
+          "mean_abs": 1.7553574149786755e-09,
+          "different_components": 1302,
+          "above_threshold_components": 0,
+          "reference_file": "suite--0.003-s0-c0.npy"
+        },
+        {
+          "snapshot": 0,
+          "channel": 1,
+          "dispersion": 0.0,
+          "inputs": {
+            "time": 0.0,
+            "drag": [
+              0.0,
+              0.0
+            ],
+            "scroll": 0.0
+          },
+          "elapsed_ms": 318.4505000244826,
+          "finite": true,
+          "max_abs": 4.991888999938965e-07,
+          "mean_abs": 1.708877372941231e-09,
+          "different_components": 1289,
+          "above_threshold_components": 0,
+          "reference_file": "suite-0.0-s0-c1.npy"
+        },
+        {
+          "snapshot": 0,
+          "channel": 2,
+          "dispersion": 0.005,
+          "inputs": {
+            "time": 0.0,
+            "drag": [
+              0.0,
+              0.0
+            ],
+            "scroll": 0.0
+          },
+          "elapsed_ms": 322.197999979835,
+          "finite": true,
+          "max_abs": 6.130430847406387e-07,
+          "mean_abs": 1.7015929776320604e-09,
+          "different_components": 1286,
+          "above_threshold_components": 0,
+          "reference_file": "suite-0.005-s0-c2.npy"
+        },
+        {
+          "snapshot": 1,
+          "channel": 0,
+          "dispersion": -0.003,
+          "inputs": {
+            "time": 2.5,
+            "drag": [
+              12.0,
+              -3.0
+            ],
+            "scroll": 2.0
+          },
+          "elapsed_ms": 381.10280002001673,
+          "finite": true,
+          "max_abs": 1.3682292774319649e-05,
+          "mean_abs": 8.82918893552187e-09,
+          "different_components": 2283,
+          "above_threshold_components": 7,
+          "reference_file": "suite--0.003-s1-c0.npy"
+        },
+        {
+          "snapshot": 1,
+          "channel": 1,
+          "dispersion": 0.0,
+          "inputs": {
+            "time": 2.5,
+            "drag": [
+              12.0,
+              -3.0
+            ],
+            "scroll": 2.0
+          },
+          "elapsed_ms": 342.2732000472024,
+          "finite": true,
+          "max_abs": 1.3656215742230415e-05,
+          "mean_abs": 8.548254548657042e-09,
+          "different_components": 2243,
+          "above_threshold_components": 7,
+          "reference_file": "suite-0.0-s1-c1.npy"
+        },
+        {
+          "snapshot": 1,
+          "channel": 2,
+          "dispersion": 0.005,
+          "inputs": {
+            "time": 2.5,
+            "drag": [
+              12.0,
+              -3.0
+            ],
+            "scroll": 2.0
+          },
+          "elapsed_ms": 385.7346000149846,
+          "finite": true,
+          "max_abs": 2.8192996978759766e-05,
+          "mean_abs": 1.1110324216190293e-08,
+          "different_components": 2250,
+          "above_threshold_components": 9,
+          "reference_file": "suite-0.005-s1-c2.npy"
+        },
+        {
+          "snapshot": 2,
+          "channel": 0,
+          "dispersion": -0.003,
+          "inputs": {
+            "time": 5.0,
+            "drag": [
+              -20.0,
+              9.0
+            ],
+            "scroll": -1.0
+          },
+          "elapsed_ms": 413.43830002006143,
+          "finite": true,
+          "max_abs": 9.66433435678482e-06,
+          "mean_abs": 4.005049181188269e-09,
+          "different_components": 1346,
+          "above_threshold_components": 0,
+          "reference_file": "suite--0.003-s2-c0.npy"
+        },
+        {
+          "snapshot": 2,
+          "channel": 1,
+          "dispersion": 0.0,
+          "inputs": {
+            "time": 5.0,
+            "drag": [
+              -20.0,
+              9.0
+            ],
+            "scroll": -1.0
+          },
+          "elapsed_ms": 439.4948999979533,
+          "finite": true,
+          "max_abs": 1.729372888803482e-05,
+          "mean_abs": 5.634096300610736e-09,
+          "different_components": 1310,
+          "above_threshold_components": 3,
+          "reference_file": "suite-0.0-s2-c1.npy"
+        },
+        {
+          "snapshot": 2,
+          "channel": 2,
+          "dispersion": 0.005,
+          "inputs": {
+            "time": 5.0,
+            "drag": [
+              -20.0,
+              9.0
+            ],
+            "scroll": -1.0
+          },
+          "elapsed_ms": 428.74900001334026,
+          "finite": true,
+          "max_abs": 1.7342157661914825e-05,
+          "mean_abs": 5.913246337030387e-09,
+          "different_components": 1308,
+          "above_threshold_components": 3,
+          "reference_file": "suite-0.005-s2-c2.npy"
+        },
+        {
+          "snapshot": 3,
+          "channel": 0,
+          "dispersion": -0.003,
+          "inputs": {
+            "time": 9.9,
+            "drag": [
+              0.0,
+              0.0
+            ],
+            "scroll": 0.0
+          },
+          "elapsed_ms": 499.5880000060424,
+          "finite": true,
+          "max_abs": 5.332985892891884e-07,
+          "mean_abs": 1.713605923825412e-09,
+          "different_components": 1297,
+          "above_threshold_components": 0,
+          "reference_file": "suite--0.003-s3-c0.npy"
+        },
+        {
+          "snapshot": 3,
+          "channel": 1,
+          "dispersion": 0.0,
+          "inputs": {
+            "time": 9.9,
+            "drag": [
+              0.0,
+              0.0
+            ],
+            "scroll": 0.0
+          },
+          "elapsed_ms": 426.71899998094887,
+          "finite": true,
+          "max_abs": 5.806796252727509e-07,
+          "mean_abs": 1.7183471312520737e-09,
+          "different_components": 1292,
+          "above_threshold_components": 0,
+          "reference_file": "suite-0.0-s3-c1.npy"
+        },
+        {
+          "snapshot": 3,
+          "channel": 2,
+          "dispersion": 0.005,
+          "inputs": {
+            "time": 9.9,
+            "drag": [
+              0.0,
+              0.0
+            ],
+            "scroll": 0.0
+          },
+          "elapsed_ms": 436.7249000351876,
+          "finite": true,
+          "max_abs": 6.603077054023743e-07,
+          "mean_abs": 1.7016098530220347e-09,
+          "different_components": 1289,
+          "above_threshold_components": 0,
+          "reference_file": "suite-0.005-s3-c2.npy"
+        }
+      ]
+    }
+  ],
+  "browser_experiments": [
+    {
+      "experiment": "browser-combined-wavefront",
+      "success": false,
+      "native_numerical_gate": "passed",
+      "AA": 2,
+      "quality": "auto",
+      "canvas": [
+        160,
+        90
+      ],
+      "compile_budget_ms": 60000,
+      "per_program_compile_budget_ms": 25000,
+      "frame_budget_ms": 15000,
+      "completed_frames": 0,
+      "renderer": "ANGLE (Intel, Intel(R) UHD Graphics (0x0000A7A8) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "last_error": "shade compilation exceeded 25s. Live stopped; this diagnostic remains unaccepted.",
+      "compiler_stages": [
+        {
+          "stage": "init:vertex-compile-call",
+          "elapsed_ms": 0.3999999761581421
+        },
+        {
+          "stage": "init:fragment-compile-call",
+          "elapsed_ms": 0.800000011920929
+        },
+        {
+          "stage": "init:link-call",
+          "elapsed_ms": 0.8999999761581421
+        },
+        {
+          "stage": "init:completion-wait",
+          "elapsed_ms": 1.5999999642372131
+        },
+        {
+          "stage": "init:ready",
+          "elapsed_ms": 2500.099999964237
+        },
+        {
+          "stage": "scene:vertex-compile-call",
+          "elapsed_ms": 2500.599999964237
+        },
+        {
+          "stage": "scene:fragment-compile-call",
+          "elapsed_ms": 2500.699999988079
+        },
+        {
+          "stage": "scene:link-call",
+          "elapsed_ms": 2500.699999988079
+        },
+        {
+          "stage": "scene:completion-wait",
+          "elapsed_ms": 2500.800000011921
+        },
+        {
+          "stage": "scene:ready",
+          "elapsed_ms": 8165.599999964237
+        },
+        {
+          "stage": "reflection:vertex-compile-call",
+          "elapsed_ms": 8165.800000011921
+        },
+        {
+          "stage": "reflection:fragment-compile-call",
+          "elapsed_ms": 8166.300000011921
+        },
+        {
+          "stage": "reflection:link-call",
+          "elapsed_ms": 8166.300000011921
+        },
+        {
+          "stage": "reflection:completion-wait",
+          "elapsed_ms": 8166.300000011921
+        },
+        {
+          "stage": "reflection:ready",
+          "elapsed_ms": 14700.199999988079
+        },
+        {
+          "stage": "shade:vertex-compile-call",
+          "elapsed_ms": 14700.399999976158
+        },
+        {
+          "stage": "shade:fragment-compile-call",
+          "elapsed_ms": 14700.800000011921
+        },
+        {
+          "stage": "shade:link-call",
+          "elapsed_ms": 14700.800000011921
+        },
+        {
+          "stage": "shade:completion-wait",
+          "elapsed_ms": 14700.800000011921
+        }
+      ],
+      "main_thread_heartbeat_max_gap_ms": 157.80000001192093,
+      "live_click_ms": 102.78319998178631,
+      "source_sha256": {
+        "init": "5dd49fb92c86595a784a64215f031ce933857cab0b1400077846742fa0ec5bea",
+        "scene": "3ce232699992bfbf4a58fdbc9e372baf8d7562b252418f4aef8d205eba66dc33",
+        "reflection": "a1676324edbc92a41ed9807a3fbe05f2a20b7f7c00c887aad8a16ca156ba8fe3",
+        "shade": "115ae1735e36eae2545b1210db58ca05f18c64b4bf51bd7e46572972f51793d8",
+        "update": "04184f668bdcf645b6bdd5253c5e38300f0c1ca35b0a3c01c14e53b912d2323e",
+        "accumulation": "fa443a16e1e20744194aa42f4a45b322406c92022711827a2ed6a51eba9547ef",
+        "composition": "2f9aa6cf438396ecac3995959836ec79a13fee7d491430b11f8e7f5520e90b8c"
+      },
+      "worker_sha256": "0301bd6bf1c5582803fcf66d4b5ef7d635554f9729d370ddc7f5562a1e6b95c6",
+      "film_fallback_visible": true,
+      "live_canvas_visible": false
+    },
+    {
+      "experiment": "browser-terminal-opaque",
+      "success": false,
+      "native_numerical_gate": "passed",
+      "AA": 2,
+      "quality": "auto",
+      "canvas": [
+        160,
+        90
+      ],
+      "compile_budget_ms": 60000,
+      "per_program_compile_budget_ms": 25000,
+      "frame_budget_ms": 15000,
+      "completed_frames": 0,
+      "renderer": "ANGLE (Intel, Intel(R) UHD Graphics (0x0000A7A8) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "last_error": "shade compilation exceeded 25s. Live stopped; this diagnostic remains unaccepted.",
+      "compiler_stages": [
+        {
+          "stage": "init:vertex-compile-call",
+          "elapsed_ms": 0.3999999761581421
+        },
+        {
+          "stage": "init:fragment-compile-call",
+          "elapsed_ms": 0.800000011920929
+        },
+        {
+          "stage": "init:link-call",
+          "elapsed_ms": 0.800000011920929
+        },
+        {
+          "stage": "init:completion-wait",
+          "elapsed_ms": 1.100000023841858
+        },
+        {
+          "stage": "init:ready",
+          "elapsed_ms": 2499
+        },
+        {
+          "stage": "scene:vertex-compile-call",
+          "elapsed_ms": 2499.300000011921
+        },
+        {
+          "stage": "scene:fragment-compile-call",
+          "elapsed_ms": 2499.399999976158
+        },
+        {
+          "stage": "scene:link-call",
+          "elapsed_ms": 2499.399999976158
+        },
+        {
+          "stage": "scene:completion-wait",
+          "elapsed_ms": 2499.399999976158
+        },
+        {
+          "stage": "scene:ready",
+          "elapsed_ms": 8409
+        },
+        {
+          "stage": "reflection:vertex-compile-call",
+          "elapsed_ms": 8409.199999988079
+        },
+        {
+          "stage": "reflection:fragment-compile-call",
+          "elapsed_ms": 8409.5
+        },
+        {
+          "stage": "reflection:link-call",
+          "elapsed_ms": 8409.5
+        },
+        {
+          "stage": "reflection:completion-wait",
+          "elapsed_ms": 8409.5
+        },
+        {
+          "stage": "reflection:ready",
+          "elapsed_ms": 15333.899999976158
+        },
+        {
+          "stage": "shade:vertex-compile-call",
+          "elapsed_ms": 15334.199999988079
+        },
+        {
+          "stage": "shade:fragment-compile-call",
+          "elapsed_ms": 15334.300000011921
+        },
+        {
+          "stage": "shade:link-call",
+          "elapsed_ms": 15334.399999976158
+        },
+        {
+          "stage": "shade:completion-wait",
+          "elapsed_ms": 15334.399999976158
+        }
+      ],
+      "main_thread_heartbeat_max_gap_ms": 143.39999997615814,
+      "live_click_ms": 91.52459999313578,
+      "source_sha256": {
+        "init": "5dd49fb92c86595a784a64215f031ce933857cab0b1400077846742fa0ec5bea",
+        "scene": "3ce232699992bfbf4a58fdbc9e372baf8d7562b252418f4aef8d205eba66dc33",
+        "reflection": "a1676324edbc92a41ed9807a3fbe05f2a20b7f7c00c887aad8a16ca156ba8fe3",
+        "shade": "0b8b8ab8c26c2d1579189fd66652514beaf92a8ee683cd0f6d24186c393ad63e",
+        "update": "04184f668bdcf645b6bdd5253c5e38300f0c1ca35b0a3c01c14e53b912d2323e",
+        "accumulation": "fa443a16e1e20744194aa42f4a45b322406c92022711827a2ed6a51eba9547ef",
+        "composition": "2f9aa6cf438396ecac3995959836ec79a13fee7d491430b11f8e7f5520e90b8c"
+      },
+      "worker_sha256": "0301bd6bf1c5582803fcf66d4b5ef7d635554f9729d370ddc7f5562a1e6b95c6",
+      "film_fallback_visible": true,
+      "live_canvas_visible": false
+    }
+  ],
+  "production_shader_integration": false,
+  "guarded_terminal_browser_attempted": false,
+  "interpretation": [
+    "The combined and terminal-opaque state decompositions preserve original helper bodies, all four camera samples, three wavelengths, full RGB throughput and 24 transport updates.",
+    "The guarded-terminal alternative failed the unchanged numerical tolerance and was excluded without a browser attempt.",
+    "Actual D3D browser initialization, scene intersection and reflected lighting programs completed; terminal shading exceeded its 25-second compile/link completion budget.",
+    "No ray execution, complete Live bitmap or changed Live pixels were reached in these two browser probes.",
+    "A compilation-completion timeout does not identify whether translator, optimizer, HLSL compilation or driver program creation is responsible.",
+    "Rare 4x4 inactive-ray differences appeared at initialization in earlier candidates; subsequent copies preserved them bit-for-bit. This does not establish driver corruption."
+  ],
+  "limitations": [
+    "Native numerical equivalence does not establish browser numerical equivalence or browser GPU execution.",
+    "No physical mobile device or other graphics driver was tested in this continuation.",
+    "Linux/macOS native CI configuration is separate from actual hosted execution; no remote run was performed here.",
+    "Worker termination is not proof that pending driver compilation has been cancelled.",
+    "Historical film and images were never substituted for current shader pixels."
+  ]
+}

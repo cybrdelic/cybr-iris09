@@ -28,12 +28,16 @@ jobs:
         run: |
           python -m unittest discover -s tests -p test_native_generator.py -v
           python -m unittest discover -s tests -p test_native_validator.py -v
+          python -m unittest discover -s tests -p test_native_preview.py -v
       - name: Render all four camera samples at three wavelengths
         run: python tools/render_native.py --width 128 --height 72 --samples 2 --timeout 60 --output test-results/native/aa2.png --json test-results/native/aa2.json
       - name: Render explicit AA1 at an odd resolution and changed camera
         run: python tools/render_native.py --width 159 --height 91 --samples 1 --time 5 --drag -20 9 --scroll -1 --timeout 60 --output test-results/native/aa1.png --json test-results/native/aa1.json
       - name: Compare against independent original shader probes
         run: python tools/validate_native.py --json test-results/native/comparison.json
+      - name: Verify real localhost native frames and clean shutdown
+        timeout-minutes: 3
+        run: python tests/native_preview_smoke.py --timeout 60 --out test-results/native/http-preview
       - uses: actions/upload-artifact@v4
         if: always()
         with:

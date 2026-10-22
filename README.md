@@ -4,6 +4,8 @@ See the [viewer compatibility guide](PORTABILITY.md) for the bounded Live worker
 
 The [native still renderer](docs/native-renderer.md) now renders the complete scene directly from the archived equations through OpenGL 3.3. Its Windows execution is verified; it is separate from browser Live, which remains under investigation on the audited Intel/ANGLE adapter.
 
+For actual time, camera and zoom interaction on that computer, run the [localhost native preview](docs/native-preview.md). It displays newly rendered full-scene stills and keeps the newest requested controls. The verified 160 x 90 AA2 requests took 8-12 seconds including process startup and compilation; this is not real-time playback.
+
 A procedural optical-mechanism study in one GLSL fragment pass: nine swept iris leaves, a linked actuator, recessed refractive elements, machined surfaces, and a thin-lens camera.
 
 ![IRIS-09 optical mechanism](media/iris-09-4k.png)
