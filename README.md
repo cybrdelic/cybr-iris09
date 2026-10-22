@@ -1,5 +1,7 @@
 # IRIS / 09
 
+See the [viewer compatibility guide](PORTABILITY.md) for the bounded Live worker, responsive controls, setup and the observed Intel/ANGLE limitation. Film and source downloads remain available when Live cannot run.
+
 A procedural optical-mechanism study in one GLSL fragment pass: nine swept iris leaves, a linked actuator, recessed refractive elements, machined surfaces, and a thin-lens camera.
 
 ![IRIS-09 optical mechanism](media/iris-09-4k.png)
